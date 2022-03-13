@@ -7,4 +7,5 @@
     <string name="kid_name">Bartek</string>
     <string name="n_tasks">0</string>
     <string name="n_points">0</string>
+    <string name="button_add_child">ADD CHILD</string>
 </resources>

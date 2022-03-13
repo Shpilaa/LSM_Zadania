@@ -6,4 +6,11 @@
     <dimen name="card_layout_width">0dp</dimen>
     <dimen name="card_layout_height">10dp</dimen>
     <dimen name="card_radius">40dp</dimen>
+    <dimen name="button_margin_end">30dp</dimen>
+    <dimen name="card_name_size">30sp</dimen>
+    <dimen name="card_value_size">20sp</dimen>
+    <dimen name="card_content_padding">10dp</dimen>
+    <dimen name="card_value_padding">20dp</dimen>
+    <dimen name="card_image_width">75dp</dimen>
+    <dimen name="button_margin_bottom">100dp</dimen>
 </resources>

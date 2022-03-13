@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LSM_Zadania</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="child_rewards">Child Rewards</string>
+    <string name="kid_name">Bartek</string>
+    <string name="n_tasks">0</string>
+    <string name="n_points">0</string>
+</resources>

@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Szpil/AndroidStudioProjects/LSM_Zadania/app/src/main/res/drawable-v24/ic_heart_24.xml" value="0.336" />
         <entry key="..\:/Users/Szpil/AndroidStudioProjects/LSM_Zadania/app/src/main/res/drawable-v24/ic_task_completed.xml" value="0.2985" />
+        <entry key="..\:/Users/Szpil/AndroidStudioProjects/LSM_Zadania/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.336" />
         <entry key="..\:/Users/Szpil/AndroidStudioProjects/LSM_Zadania/app/src/main/res/layout/activity_main.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/Szpil/AndroidStudioProjects/LSM_Zadania/app/src/main/res/layout/fragment_dashboard.xml" value="0.371875" />
-        <entry key="..\:/Users/Szpil/AndroidStudioProjects/LSM_Zadania/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Users/Szpil/AndroidStudioProjects/LSM_Zadania/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/Szpil/AndroidStudioProjects/LSM_Zadania/app/src/main/res/layout/fragment_notifications.xml" value="0.371875" />
         <entry key="..\:/Users/Szpil/AndroidStudioProjects/LSM_Zadania/app/src/main/res/menu/bottom_nav_menu.xml" value="0.371875" />
       </map>

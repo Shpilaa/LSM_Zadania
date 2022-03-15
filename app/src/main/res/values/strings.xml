@@ -4,7 +4,9 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="child_rewards">Child Rewards</string>
-    <string name="kid_name">Bartek</string>
+    <string name="kid_name1">Zosia</string>
+    <string name="kid_name2">Bartek</string>
+    <string name="kid_name3">Michał</string>
     <string name="n_tasks">0</string>
     <string name="n_points">0</string>
     <string name="button_add_child">ADD CHILD</string>

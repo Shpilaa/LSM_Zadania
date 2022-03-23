@@ -4,19 +4,312 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@drawable/bg_dashboard"
     tools:context=".ui.dashboard.DashboardFragment">
 
-    <TextView
-        android:id="@+id/text_dashboard"
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/button_grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:columnCount="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp"
+            app:layout_column="0"
+            app:layout_columnWeight="1"
+            app:layout_row="0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <RadioButton
+                    android:id="@+id/radio_button_behaviour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:buttonTint="@color/gold_yellow"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/button_behaviour_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/card_value_padding"
+                    android:text="@string/behaviour_string"
+                    android:textColor="@color/gold_yellow"
+                    android:textSize="@dimen/card_value_size"
+                    app:drawableEndCompat="@drawable/ic_heart_24"
+                    app:layout_constraintTop_toBottomOf="@id/radio_button_behaviour"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp"
+            app:layout_column="1"
+            app:layout_columnWeight="1"
+            app:layout_row="0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radio_button_duties"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:checked="true"
+                    android:buttonTint="@color/gold_yellow"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/button_duties_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/card_value_padding"
+                    android:text="@string/duties_string"
+                    android:textColor="@color/gold_yellow"
+                    android:textSize="@dimen/card_value_size"
+                    app:drawableEndCompat="@drawable/ic_task_completed"
+                    app:layout_constraintTop_toBottomOf="@id/radio_button_duties"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.gridlayout.widget.GridLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/name_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/inputMargin"
+        android:layout_marginEnd="@dimen/inputMargin"
+        app:layout_constraintTop_toBottomOf="@id/button_grid"
+        android:layout_marginTop="@dimen/input_margin_top"
+        >
+
+        <ImageView
+            android:id="@+id/user_icon"
+            android:layout_width="@dimen/db_icon_size"
+            android:layout_height="@dimen/db_icon_size"
+            android:src="@drawable/ic_user"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/name_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/user_icon"
+            android:layout_marginStart="@dimen/input_text_margin"
+            android:text="@string/name_input_string"
+            android:textStyle="bold"
+            android:textColor="@color/gold_yellow"
+            android:textSize="@dimen/dashboard_text"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/input_margin_top"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:ignore="LabelFor" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/date_form"
+        android:layout_marginStart="@dimen/inputMargin"
+        android:layout_marginEnd="@dimen/inputMargin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/name_form"
+        android:layout_marginTop="@dimen/input_margin_top"
+        >
+
+        <ImageView
+            android:id="@+id/calendar_icon"
+            android:layout_width="@dimen/db_icon_size"
+            android:layout_height="@dimen/db_icon_size"
+            android:src="@drawable/ic_calendar"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/date_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/input_text_margin"
+            android:layout_toEndOf="@id/calendar_icon"
+            android:text="@string/calendar_input_string"
+            android:textColor="@color/gold_yellow"
+            android:textSize="@dimen/dashboard_text"
+            android:textStyle="bold" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/input_margin_top"
+            android:inputType="text"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/user_grid_layout"
+        android:layout_marginStart="@dimen/inputMargin"
+        android:layout_marginEnd="@dimen/inputMargin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/date_form"
+        android:layout_marginTop="@dimen/input_margin_top"
+        >
+
+        <TextView
+            android:id="@+id/user_grid_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/user_grid_text"
+            android:textColor="@color/gold_yellow"
+            android:textSize="@dimen/dashboard_text"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/child_array_margin_top"
+            android:gravity="center_horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_layout_height"
+                app:cardBackgroundColor="@color/gold_yellow"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:contentPadding="@dimen/card_content_padding">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/card_image_width"
+                    android:layout_height="@dimen/card_image_width"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/avatar1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_layout_height"
+                app:cardBackgroundColor="@color/gold_yellow"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:contentPadding="@dimen/card_content_padding">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/card_image_width"
+                    android:layout_height="@dimen/card_image_width"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/avatar1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_layout_height"
+                app:cardBackgroundColor="@color/gold_yellow"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:contentPadding="@dimen/card_content_padding">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/card_image_width"
+                    android:layout_height="@dimen/card_image_width"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/avatar1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_layout_height"
+                app:cardBackgroundColor="@color/gold_yellow"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:contentPadding="@dimen/card_content_padding">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/card_image_width"
+                    android:layout_height="@dimen/card_image_width"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/avatar1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/add_child"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="@string/dashboard_button"
+        android:textStyle="bold"
+        android:textSize="@dimen/dashboard_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:backgroundTint="@color/gold_yellow"
+        android:textColor="@color/black"
+        android:layout_marginEnd="@dimen/button_margin_end"
+        android:layout_marginBottom="@dimen/button_margin_bottom"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

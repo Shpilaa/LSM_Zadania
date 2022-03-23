@@ -10,4 +10,10 @@
     <string name="n_tasks">0</string>
     <string name="n_points">0</string>
     <string name="button_add_child">ADD CHILD</string>
+    <string name="dashboard_button">+ ADD</string>
+    <string name="user_grid_text">Assigned to:</string>
+    <string name="name_input_string">Name</string>
+    <string name="calendar_input_string">Repeat</string>
+    <string name="behaviour_string">Behaviour</string>
+    <string name="duties_string">Duties</string>
 </resources>

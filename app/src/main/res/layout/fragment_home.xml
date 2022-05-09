@@ -1,267 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:background="@drawable/bg_home"
-    tools:context=".ui.home.HomeFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.lsm_zadania.ui.home.HomeViewModel" />
+        <variable
+            name="resourceUtils"
+            type="com.example.lsm_zadania.utils.ResourceUtils" />
+    </data>
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/child_rewards"
-        android:textAlignment="center"
-        android:textColor="@color/gold_yellow"
-        android:textSize="@dimen/header_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/card_grid"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:columnCount="2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home"
-        app:layout_constraintVertical_bias="1.0">
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/bg_home"
+        tools:context=".ui.home.HomeFragment">
 
-        <androidx.cardview.widget.CardView
+
+        <TextView
+            android:id="@+id/text_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/card_layout_height"
-            app:cardBackgroundColor="@color/gold_yellow"
-            app:cardCornerRadius="@dimen/card_radius"
-            app:contentPadding="@dimen/card_content_padding"
-            app:layout_column="0"
-            app:layout_columnWeight="1"
-            app:layout_row="0">
+            android:text="@{viewModel.text}"
+            android:textAlignment="center"
+            android:textColor="@color/gold_yellow"
+            android:textSize="@dimen/header_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/card_grid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:columnCount="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_home"
+            app:layout_constraintVertical_bias="1.0">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/avatar1"
-                    android:layout_width="@dimen/card_image_width"
-                    android:layout_height="@dimen/card_image_width"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    app:layout_constraintBottom_toTopOf="@+id/name1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/avatar1" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_layout_height"
+                app:cardBackgroundColor="@color/gold_yellow"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:contentPadding="@dimen/card_content_padding"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_row="0">
 
-                <TextView
-                    android:id="@+id/points1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/card_value_padding"
-                    android:text="@string/n_points"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/card_value_size"
-                    app:drawableStartCompat="@drawable/ic_heart_24"
-                    app:layout_constraintBottom_toTopOf="@+id/tasks1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/avatar1"
-                    app:layout_constraintTop_toTopOf="@+id/avatar1" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/tasks1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/card_value_padding"
-                    android:text="@string/n_tasks"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/card_value_size"
-                    app:drawableStartCompat="@drawable/ic_task_completed"
-                    app:layout_constraintBottom_toTopOf="@+id/name1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/avatar1"
-                    app:layout_constraintTop_toBottomOf="@id/points1" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/avatar1"
+                        android:layout_width="@dimen/card_image_width"
+                        android:layout_height="@dimen/card_image_width"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        app:layout_constraintBottom_toTopOf="@+id/name1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:imageResource='@{resourceUtils.getResourceDrawableId(viewModel.childList.get(0).drawableName, context)}'/>
 
-                <TextView
-                    android:id="@+id/name1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/kid_name1"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/card_name_size"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    <TextView
+                        android:id="@+id/points1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/card_value_padding"
+                        android:text='@{Integer.toString(viewModel.childList.get(0).behaviorPoints), default="0"}'
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/card_value_size"
+                        app:drawableStartCompat="@drawable/ic_heart_24"
+                        app:layout_constraintBottom_toTopOf="@+id/tasks1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/avatar1"
+                        app:layout_constraintTop_toTopOf="@+id/avatar1" />
+
+                    <TextView
+                        android:id="@+id/tasks1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/card_value_padding"
+                        android:text='@{Integer.toString(viewModel.childList.get(0).dutyPoints), default="0"}'
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/card_value_size"
+                        app:drawableStartCompat="@drawable/ic_task_completed"
+                        app:layout_constraintBottom_toTopOf="@+id/name1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/avatar1"
+                        app:layout_constraintTop_toBottomOf="@id/points1" />
+
+                    <TextView
+                        android:id="@+id/name1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text='@{viewModel.childList.get(0).name, default="NAME"}'
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/card_name_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_layout_height"
+                app:cardBackgroundColor="@color/gold_yellow"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:contentPadding="@dimen/card_content_padding"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_row="0">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/avatar2"
+                        android:layout_width="@dimen/card_image_width"
+                        android:layout_height="@dimen/card_image_width"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        app:layout_constraintBottom_toTopOf="@+id/name2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/avatar2" />
+
+                    <TextView
+                        android:id="@+id/points2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/card_value_padding"
+                        android:text='@{Integer.toString(viewModel.childList.get(1).behaviorPoints), default="0"}'
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/card_value_size"
+                        app:drawableStartCompat="@drawable/ic_heart_24"
+                        app:layout_constraintBottom_toTopOf="@+id/tasks2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/avatar2"
+                        app:layout_constraintTop_toTopOf="@+id/avatar2" />
+
+                    <TextView
+                        android:id="@+id/tasks2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/card_value_padding"
+                        android:text='@{Integer.toString(viewModel.childList.get(1).dutyPoints), default="0"}'
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/card_value_size"
+                        app:drawableStartCompat="@drawable/ic_task_completed"
+                        app:layout_constraintBottom_toTopOf="@+id/name2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/avatar2"
+                        app:layout_constraintTop_toBottomOf="@id/points2" />
+
+                    <TextView
+                        android:id="@+id/name2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text='@{viewModel.childList.get(1).name, default="NAME"}'
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/card_name_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_layout_height"
+                app:cardBackgroundColor="@color/gold_yellow"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:contentPadding="@dimen/card_content_padding"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_row="1">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/avatar3"
+                        android:layout_width="@dimen/card_image_width"
+                        android:layout_height="@dimen/card_image_width"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        app:layout_constraintBottom_toTopOf="@+id/name3"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/avatar3" />
+
+                    <TextView
+                        android:id="@+id/points3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/card_value_padding"
+                        android:text='@{Integer.toString(viewModel.childList.get(2).behaviorPoints), default="0"}'
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/card_value_size"
+                        app:drawableStartCompat="@drawable/ic_heart_24"
+                        app:layout_constraintBottom_toTopOf="@+id/tasks3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/avatar3"
+                        app:layout_constraintTop_toTopOf="@+id/avatar3" />
+
+                    <TextView
+                        android:id="@+id/tasks3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/card_value_padding"
+                        android:text='@{Integer.toString(viewModel.childList.get(2).dutyPoints), default="0"}'
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/card_value_size"
+                        app:drawableStartCompat="@drawable/ic_task_completed"
+                        app:layout_constraintBottom_toTopOf="@+id/name3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/avatar3"
+                        app:layout_constraintTop_toBottomOf="@id/points3" />
+
+                    <TextView
+                        android:id="@+id/name3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text='@{viewModel.childList.get(2).name, default="NAME"}'
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/card_name_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <Button
+            android:id="@+id/add_child"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/card_layout_height"
-            app:cardBackgroundColor="@color/gold_yellow"
-            app:cardCornerRadius="@dimen/card_radius"
-            app:contentPadding="@dimen/card_content_padding"
-            app:layout_column="1"
-            app:layout_columnWeight="1"
-            app:layout_row="0">
+            android:layout_alignParentTop="true"
+            android:text="@string/button_add_child"
+            android:onClick="@{() -> viewModel.addNewChild()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:backgroundTint="@color/gold_yellow"
+            android:textColor="@color/black"
+            android:layout_marginEnd="@dimen/button_margin_end"
+            android:layout_marginBottom="@dimen/button_margin_bottom" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/avatar2"
-                    android:layout_width="@dimen/card_image_width"
-                    android:layout_height="@dimen/card_image_width"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    app:layout_constraintBottom_toTopOf="@+id/name2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/avatar2" />
-
-                <TextView
-                    android:id="@+id/points2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/card_value_padding"
-                    android:text="@string/n_points"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/card_value_size"
-                    app:drawableStartCompat="@drawable/ic_heart_24"
-                    app:layout_constraintBottom_toTopOf="@+id/tasks2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/avatar2"
-                    app:layout_constraintTop_toTopOf="@+id/avatar2" />
-
-                <TextView
-                    android:id="@+id/tasks2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/card_value_padding"
-                    android:text="@string/n_tasks"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/card_value_size"
-                    app:drawableStartCompat="@drawable/ic_task_completed"
-                    app:layout_constraintBottom_toTopOf="@+id/name2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/avatar2"
-                    app:layout_constraintTop_toBottomOf="@id/points2" />
-
-                <TextView
-                    android:id="@+id/name2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/kid_name2"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/card_name_size"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/card_layout_height"
-            app:cardBackgroundColor="@color/gold_yellow"
-            app:cardCornerRadius="@dimen/card_radius"
-            app:contentPadding="@dimen/card_content_padding"
-            app:layout_column="0"
-            app:layout_columnWeight="1"
-            app:layout_row="1">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/avatar3"
-                    android:layout_width="@dimen/card_image_width"
-                    android:layout_height="@dimen/card_image_width"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    app:layout_constraintBottom_toTopOf="@+id/name3"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/avatar3" />
-
-                <TextView
-                    android:id="@+id/points3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/card_value_padding"
-                    android:text="@string/n_points"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/card_value_size"
-                    app:drawableStartCompat="@drawable/ic_heart_24"
-                    app:layout_constraintBottom_toTopOf="@+id/tasks3"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/avatar3"
-                    app:layout_constraintTop_toTopOf="@+id/avatar3" />
-
-                <TextView
-                    android:id="@+id/tasks3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/card_value_padding"
-                    android:text="@string/n_tasks"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/card_value_size"
-                    app:drawableStartCompat="@drawable/ic_task_completed"
-                    app:layout_constraintBottom_toTopOf="@+id/name3"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/avatar3"
-                    app:layout_constraintTop_toBottomOf="@id/points3" />
-
-                <TextView
-                    android:id="@+id/name3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/kid_name3"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/card_name_size"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-
-    </androidx.gridlayout.widget.GridLayout>
-
-    <Button
-        android:id="@+id/add_child"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:text="@string/button_add_child"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:backgroundTint="@color/gold_yellow"
-        android:textColor="@color/black"
-        android:layout_marginEnd="@dimen/button_margin_end"
-        android:layout_marginBottom="@dimen/button_margin_bottom"
-        />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

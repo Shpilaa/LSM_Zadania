@@ -16,4 +16,8 @@
     <string name="calendar_input_string">Repeat</string>
     <string name="behaviour_string">Behaviour</string>
     <string name="duties_string">Duties</string>
+    <string name="childs_name">Child\'s name</string>
+    <string name="childs_birthday">Child\'s birthday</string>
+    <string name="choose_avatar">Choose avatar:</string>
+    <string name="add_child">ChildAddOrEditFragment</string>
 </resources>

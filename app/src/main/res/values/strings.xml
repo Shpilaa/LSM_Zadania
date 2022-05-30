@@ -20,4 +20,5 @@
     <string name="childs_birthday">Child\'s birthday</string>
     <string name="choose_avatar">Choose avatar:</string>
     <string name="add_child">ChildAddOrEditFragment</string>
+    <string name="select_birthdate">Select birthday</string>
 </resources>

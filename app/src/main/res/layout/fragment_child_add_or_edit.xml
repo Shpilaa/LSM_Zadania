@@ -1,172 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:background="@drawable/bg_dashboard"
-    tools:context=".ui.home.HomeFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout
-        android:id="@+id/name_form"
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.lsm_zadania.ui.home.ChildAddOrEditViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/inputMargin"
-        android:layout_marginEnd="@dimen/inputMargin"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/input_margin_top"
-        >
+        android:background="@drawable/bg_dashboard"
+        tools:context=".ui.home.HomeFragment">
 
-        <ImageView
-            android:id="@+id/user_icon"
-            android:layout_width="@dimen/db_icon_size"
-            android:layout_height="@dimen/db_icon_size"
-            android:src="@drawable/ic_user"
-            tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/name_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@id/user_icon"
-            android:layout_marginStart="@dimen/input_text_margin"
-            android:text="@string/name_input_string"
-            android:textStyle="bold"
-            android:textColor="@color/gold_yellow"
-            android:textSize="@dimen/dashboard_text"/>
 
-        <EditText
+        <RelativeLayout
+            android:id="@+id/name_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:hint="@string/childs_name"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            android:textColor="@color/white"
-            tools:ignore="LabelFor" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/date_form"
-        android:layout_marginStart="@dimen/inputMargin"
-        android:layout_marginEnd="@dimen/inputMargin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/name_form"
-        android:layout_marginTop="@dimen/input_margin_top"
-        >
-
-        <ImageView
-            android:id="@+id/calendar_icon"
-            android:layout_width="@dimen/db_icon_size"
-            android:layout_height="@dimen/db_icon_size"
-            android:src="@drawable/ic_calendar"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/date_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="@dimen/input_text_margin"
-            android:layout_toEndOf="@id/calendar_icon"
-            android:text="@string/calendar_input_string"
-            android:textColor="@color/gold_yellow"
-            android:textSize="@dimen/dashboard_text"
-            android:textStyle="bold" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:hint="@string/childs_birthday"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            android:textColor="@color/white"
-            tools:ignore="LabelFor" />
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/inputMargin"
-        android:textColor="@color/gold_yellow"
-        android:text="@string/choose_avatar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/date_form" />
-
-    <androidx.gridlayout.widget.GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_margin="@dimen/inputMargin"
-        android:gravity="center"
-        app:columnCount="4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/avatar1"
-            android:layout_width="@dimen/card_image_width"
-            android:layout_height="@dimen/card_image_width"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:src="@drawable/avatar1"
-            app:layout_column="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/avatar2"
-            android:layout_width="@dimen/card_image_width"
-            android:layout_height="@dimen/card_image_width"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:src="@drawable/avatar2"
-            app:layout_column="1"
-            app:layout_constraintBottom_toTopOf="@+id/name3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/avatar3"
-            android:layout_width="@dimen/card_image_width"
-            android:layout_height="@dimen/card_image_width"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:src="@drawable/avatar3"
-            app:layout_column="2"
-            app:layout_constraintBottom_toTopOf="@+id/name3"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/inputMargin"
+            android:layout_marginEnd="@dimen/inputMargin"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_row="0" />
+            android:layout_marginTop="@dimen/input_margin_top"
+            >
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/avatar4"
-            android:layout_width="@dimen/card_image_width"
-            android:layout_height="@dimen/card_image_width"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:src="@drawable/avatar3"
-            app:layout_column="3"
-            app:layout_constraintBottom_toTopOf="@+id/name3"
+            <ImageView
+                android:id="@+id/user_icon"
+                android:layout_width="@dimen/db_icon_size"
+                android:layout_height="@dimen/db_icon_size"
+                android:src="@drawable/ic_user"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/name_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@id/user_icon"
+                android:layout_marginStart="@dimen/input_text_margin"
+                android:text="@string/name_input_string"
+                android:textStyle="bold"
+                android:textColor="@color/gold_yellow"
+                android:textSize="@dimen/dashboard_text"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:hint="@string/childs_name"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:text="@={viewModel.child.name}"
+                android:textColor="@color/white"
+                tools:ignore="LabelFor" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/date_form"
+            android:layout_marginStart="@dimen/inputMargin"
+            android:layout_marginEnd="@dimen/inputMargin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/name_form"
+            android:layout_marginTop="@dimen/input_margin_top"
+            >
+
+            <ImageView
+                android:id="@+id/calendar_icon"
+                android:layout_width="@dimen/db_icon_size"
+                android:layout_height="@dimen/db_icon_size"
+                android:src="@drawable/ic_calendar"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/date_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="@dimen/input_text_margin"
+                android:layout_toEndOf="@id/calendar_icon"
+                android:text="@string/calendar_input_string"
+                android:textColor="@color/gold_yellow"
+                android:textSize="@dimen/dashboard_text"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:hint="@string/childs_birthday"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:cursorVisible="false"
+                tools:ignore="LabelFor"
+                android:focusableInTouchMode="false"
+                android:onClick="@{() -> viewModel.showDatePicker()}" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/chooseAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/inputMargin"
+            android:textColor="@color/gold_yellow"
+            android:text="@string/choose_avatar"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/date_form" />
 
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayoutAvatarList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
+            android:padding="5dp"
+            app:columnCount="10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chooseAvatar">
 
-        <androidx.cardview.widget.CardView />
+        </androidx.gridlayout.widget.GridLayout>
 
-    </androidx.gridlayout.widget.GridLayout>
+        <Button
+            android:id="@+id/buttonAddChild"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/button_margin_end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/button_add_child"
+            android:onClick="@{() -> viewModel.saveAddChildOrEdit()}"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -2,12 +2,11 @@ package com.example.lsm_zadania.ui
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.annotation.MainThread
 import androidx.fragment.app.Fragment
+import android.view.View
 import androidx.lifecycle.*
 import androidx.navigation.NavDirections
-import androidx.navigation.Navigator
 import androidx.navigation.findNavController
 import com.example.lsm_zadania.R
 import java.util.concurrent.atomic.AtomicBoolean
@@ -102,3 +101,10 @@ class SingleLiveEvent<T> : MutableLiveData<T> () {
     }
 }
 
+fun <T> MutableLiveData<T>.notifyPostObserver() {
+    postValue(this.value)
+}
+
+fun <T> MutableLiveData<T>.notifyObserver() {
+    this.value = this.value
+}
